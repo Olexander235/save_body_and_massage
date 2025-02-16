@@ -1,0 +1,470 @@
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+.header {
+    position: absolute; /* Хедер размещается поверх других элементов */
+     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+       padding: 10px 20px;
+    background-color: rgba(34, 34, 34, 0.5); /* Полупрозрачный черный фон */
+    color: white;
+    z-index: 10; /* Поверх всех элементов */
+    position: fixed;
+}
+
+.logo img {
+    height: 50px;
+    margin-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.social-links a {
+  color: white; /* Белый цвет */
+  font-size: 20px; /* Размер иконок */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+
+.navbar a:hover,
+.social-links a:hover{
+  color: #4aa078;
+}
+
+.language-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.language-selector button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-header{
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 40px;
+  margin: 10px 20px;
+  border-radius: 30px;
+  background-image: linear-gradient(to right, #4aa078 0%, #4aa078 62%, #4aa078 100%);
+  background-position: 100% 0;
+  background-size: 100% 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);
+  transition: .5s;
+}
+
+
+.btn-header:hover {
+  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+  background-position: 0 1;
+}
+
+
+
+
+/* Стили для бургер-меню */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute; /* Для точного позиционирования */
+    right: 50px; /* Расположить справа */
+    top: 50%; /* Выравнивание по вертикали */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    z-index: 20; /* Поверх других элементов */
+}
+
+.burger-menu span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+
+
+
+
+
+.burger-menu.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger-menu.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Адаптивность */
+@media (max-width: 960px) {
+ 
+
+  .navbar {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: rgba(34, 34, 34, 0.5);
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-right: 20px;
+  }
+
+  .navbar.active {
+      display: flex;
+  }
+
+  .burger-menu {
+      display: flex;
+  }
+
+
+ 
+
+
+}
+
+@media (max-width: 960px) {
+  .header {
+      flex-wrap: wrap;
+  }
+
+  .navbar {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .navbar a {
+      margin: 5px;
+  }
+}
+
+
+/* Общие стили для слайдера */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mySlides {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  padding: 2vw;
+  max-width: 80%;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.text h2 {
+  margin: 0;
+  font-size: 8vw;
+  font-weight: 400;
+  font-family: "Marcellus", serif;
+}
+
+.text p {
+  font-size: 4vw;
+  margin-top: 10px;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+}
+
+.slider-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4aa078 51%, #41745d 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+
+.slider-button:hover {
+  background-position: right center;
+}
+
+/* Адаптивные стили для разных экранов */
+@media (min-width: 1200px) {
+  .text h2 {
+    font-size: 6vw;
+  }
+  .text p {
+    font-size: 3vw;
+  }
+  .slider-button {
+    font-size: 1.2vw;
+    padding: 1vw 3vw;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 993px) {
+  .text h2 {
+    font-size: 5vw;
+  }
+  .text p {
+    font-size: 2.5vw;
+  }
+  .slider-button {
+    font-size: 1.5vw;
+    padding: 1.2vw 4vw;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .text h2 {
+    font-size: 4.5vw;
+  }
+  .text p {
+    font-size: 2.2vw;
+  }
+  .slider-button {
+    font-size: 2vw;
+    padding: 1.5vw 5vw;
+  }
+}
+
+/* Для портретной ориентации */
+@media (max-width: 768px) and (orientation: portrait) {
+  .text {
+    top: 50%;
+    bottom: 1%;
+  }
+  .text h2 {
+    font-size: 8vw;
+  }
+  .text p {
+    font-size: 4vw;
+  }
+  .slider-button {
+    font-size: 3vw;
+    padding: 2vw 6vw;
+    bottom: 1%;
+
+  }
+  .mySlides img {
+    object-fit: cover;
+    height: auto;
+    width: auto;
+  }
+  .prev, .next{
+    display: none;
+  }
+
+}
+
+/* Для альбомной ориентации */
+@media (max-width: 768px) and (orientation: landscape) {
+  .text {
+    top: 50%;
+  }
+  .text h2 {
+    font-size: 6vw;
+  }
+  .text p {
+    font-size: 3vw;
+  }
+  .slider-button {
+    font-size: 2.5vw;
+    padding: 2vw 4vw;
+  }
+  .mySlides img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  
+
+  
+}
+
+/* Для экранов до 576px */
+@media (max-width: 576px) {
+  .text {
+    left: 5%;
+   
+    max-width: 90%;
+    padding: 1.5vw;
+  }
+  .text h2 {
+    font-size: 8vw;
+  }
+  .text p {
+    font-size: 4vw;
+  }
+  .slider-button {
+    font-size: 3vw;
+    padding: 3vw 7vw;
+  }
+  .mySlides img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+  }
+
+  .prev, .next{
+    display: none;
+  }
+
+
+  .slideshow-container {
+    height: 100vh; /* Убедитесь, что высота используется корректно */
+    margin-top: 0;
+  }
+
+  .about-us {
+    margin-top: 0;
+  }
+
+  
+}
+
+/* Для экранов до 320px */
+@media (max-width: 320px) {
+  .text h2 {
+    font-size: 10vw;
+  }
+  .text p {
+    font-size: 5vw;
+  }
+  .slider-button {
+    font-size: 3.5vw;
+    padding: 2.5vw 5vw;
+  }
+  .mySlides img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.projcard{
+  background: rgba(255, 255, 255, 0.796);
+ 
+	 display: flex;
+	margin: 0 auto;
+	 font-size: 1rem;
+	 justify-content: center;
+	 align-items: center;
+	 height: auto;
+  max-width: 1200px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+
+.card-projcard{
+  flex: 1 1 calc(13.33% - 20px); /* По умолчанию карточки занимают 1/3 ширины */
+  background-color: #fff;
+  border-radius: 10px;
+ 
+  overflow: hidden;
+  
+  text-align: center;
+}
+
+
+#footer {
+  background-color: rgba(34, 34, 34, 0.5);;
+  color: white;
+  padding: 10px 20px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
